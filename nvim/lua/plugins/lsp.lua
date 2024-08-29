@@ -73,9 +73,24 @@ return {
 
       local on_attach = function(_, bufnr)
         local function buf_set_option(...)
-        	vim.api.nvim_buf_set_option(bufnr, ...)
+          vim.api.nvim_buf_set_option(bufnr, ...)
         end
         buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+        --vim.api.nvim_create_autocmd("CursorHold", {
+        --  buffer = bufnr,
+        --  callback = function()
+        --    local opts = {
+        --      focusable = false,
+        --      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        --      border = "rounded",
+        --      source = "always",
+        --      prefix = " ",
+        --      scope = "cursor",
+        --    }
+        --    vim.diagnostic.open_float(nil, opts)
+        --  end,
+        --})
 
         local opts = { buffer = bufnr, noremap = true, silent = true }
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -129,7 +144,6 @@ return {
           },
         },
       })
-
     end,
   },
 }

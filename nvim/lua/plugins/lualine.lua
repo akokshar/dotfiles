@@ -19,7 +19,7 @@ return {
 				--globalstatus = true,
 				disabled_filetypes = { -- Filetypes to disable lualine for.
 					statusline = { "neo-tree" }, -- only ignores the ft for statusline.
-					winbar = {}, -- only ignores the ft for winbar.
+					winbar = { "neo-tree" }, -- only ignores the ft for winbar.
 				},
 			},
 			sections = {
