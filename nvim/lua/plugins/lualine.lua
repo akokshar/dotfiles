@@ -18,8 +18,24 @@ return {
 				theme = "gruvbox",
 				--globalstatus = true,
 				disabled_filetypes = { -- Filetypes to disable lualine for.
-					statusline = { "neo-tree" }, -- only ignores the ft for statusline.
-					winbar = { "neo-tree" }, -- only ignores the ft for winbar.
+					statusline = {
+						"neo-tree",
+						"dap-repl",
+						"dapui_console",
+						"dapui_scopes",
+						"dapui_breakpoints",
+						"dapui_stacks",
+						"dapui_watches",
+					}, -- only ignores the ft for statusline.
+					winbar = {
+						"neo-tree",
+						"dap-repl",
+						--"dapui_console",
+						--"dapui_scopes",
+						--"dapui_breakpoints",
+						--"dapui_stacks",
+						--"dapui_watches",
+					}, -- only ignores the ft for winbar.
 				},
 			},
 			sections = {
@@ -37,6 +53,9 @@ return {
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
+			},
+			inactive_winbar = {
+				lualine_c = { "filename" },
 			},
 		})
 	end,
