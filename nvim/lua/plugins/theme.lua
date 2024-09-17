@@ -1,12 +1,12 @@
 return {
 	{
-	  "morhetz/gruvbox",
-	  lazy = false,
-	  name = "gruvbox",
-	  priority = 1000,
-	  config = function()
-	    vim.cmd.colorscheme "gruvbox"
-	  end
+		"morhetz/gruvbox",
+		lazy = false,
+		name = "gruvbox",
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("gruvbox")
+		end,
 	},
 --	{
 --		"catppuccin/nvim",
@@ -64,7 +64,7 @@ return {
 --			})
 --
 --			-- setup must be called before loading
---			vim.cmd.colorscheme("catppuccin")
+--			--vim.cmd.colorscheme("catppuccin")
 --		end,
 --	},
 }
