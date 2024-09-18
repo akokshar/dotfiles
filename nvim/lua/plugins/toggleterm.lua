@@ -14,6 +14,14 @@ return {
 
 			open_mapping = [[<c-\>]],
 			hide_numbers = true,
+			float_opts = {
+				width = function(_)
+					return vim.o.columns - 2
+				end,
+				height = function(_)
+					return vim.o.lines - 4
+				end,
+			},
 			winbar = {
 				enabled = false,
 				name_formatter = function(term)
