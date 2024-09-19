@@ -15,11 +15,12 @@ return {
 			open_mapping = [[<c-\>]],
 			hide_numbers = true,
 			float_opts = {
+        border = "none",
 				width = function(_)
-					return vim.o.columns - 2
+					return vim.o.columns
 				end,
 				height = function(_)
-					return vim.o.lines - 4
+					return vim.o.lines - 1
 				end,
 			},
 			winbar = {
@@ -31,7 +32,12 @@ return {
 		})
 
 		local Terminal = require("toggleterm.terminal").Terminal
-		local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", name = "lazygit", hidden = true })
+		local lazygit = Terminal:new({
+      cmd = "lazygit",
+      direction = "float",
+      name = "lazygit",
+      hidden = true
+    })
 
 		function LazygitToggle()
 			lazygit:toggle()
