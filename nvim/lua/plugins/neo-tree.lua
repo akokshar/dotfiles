@@ -32,6 +32,8 @@ return {
 		--end
 
 		require("neo-tree").setup({
+      enable_git_status = false,
+
 			close_if_last_window = true,
 			--popup_border_style = "rounded",
 			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
@@ -49,10 +51,10 @@ return {
 						source = "buffers", -- string
 						display_name = " 󰈚 Buffers ", -- string | nil
 					},
-					{
-						source = "git_status", -- string
-						display_name = " 󰊢 Git ", -- string | nil
-					},
+					--{
+					--	source = "git_status", -- string
+					--	display_name = " 󰊢 Git ", -- string | nil
+					--},
 				},
 				content_layout = "center", -- string
 				tabs_layout = "start", -- string
@@ -78,9 +80,9 @@ return {
 					["B"] = function()
 						vim.api.nvim_exec("Neotree focus buffers left", true)
 					end,
-					["G"] = function()
-						vim.api.nvim_exec("Neotree focus git_status left", true)
-					end,
+					--["G"] = function()
+					--	vim.api.nvim_exec("Neotree focus git_status left", true)
+					--end,
 				},
 			},
 			--filesystem = {
@@ -135,6 +137,6 @@ return {
 
 		vim.keymap.set("n", "<M-E>", ":Neotree filesystem reveal left<CR>", {})
 		vim.keymap.set("n", "<M-B>", ":Neotree buffers reveal left<CR>", {})
-		vim.keymap.set("n", "<M-G>", ":Neotree git_status reveal left<CR>", {})
+		--vim.keymap.set("n", "<M-G>", ":Neotree git_status reveal left<CR>", {})
 	end,
 }
