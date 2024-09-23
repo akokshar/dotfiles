@@ -1,0 +1,11 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - '#1763da'
+  authorColors:
+    'lex': cyan
+    '*': red
+  branchColors:
+    'main': '#11aaff'
+    'master': '#11aaff'
+  commitAuthorShortLength: 5
