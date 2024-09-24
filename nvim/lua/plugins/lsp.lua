@@ -93,29 +93,84 @@ return {
 				--})
 
 				local opts = { buffer = bufnr, noremap = true, silent = true }
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("keep", { desc = "Code action" }, opts))
-				vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, vim.tbl_extend("keep", { desc = "Format code" }, opts))
+				vim.keymap.set(
+					"n",
+					"<leader>ca",
+					vim.lsp.buf.code_action,
+					vim.tbl_extend("keep", { desc = "Code action" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>cf",
+					vim.lsp.buf.format,
+					vim.tbl_extend("keep", { desc = "Format code" }, opts)
+				)
 				vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("keep", { desc = "Rename" }, opts))
 
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("keep", { desc = "Hover" }, opts))
-				vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, vim.tbl_extend("keep", { desc = "Signature help" }, opts))
+				vim.keymap.set(
+					"i",
+					"<C-k>",
+					vim.lsp.buf.signature_help,
+					vim.tbl_extend("keep", { desc = "Signature help" }, opts)
+				)
 
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, vim.tbl_extend("keep", { desc = "Go to declaration" }, opts))
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("keep", { desc = "Go to definition" }, opts))
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("keep", { desc = "Go to implementation" }, opts))
+				vim.keymap.set(
+					"n",
+					"gD",
+					vim.lsp.buf.declaration,
+					vim.tbl_extend("keep", { desc = "Go to declaration" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"gd",
+					vim.lsp.buf.definition,
+					vim.tbl_extend("keep", { desc = "Go to definition" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"gi",
+					vim.lsp.buf.implementation,
+					vim.tbl_extend("keep", { desc = "Go to implementation" }, opts)
+				)
 				--vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 				--vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
 				--vim.keymap.set('n', '<space>wl', function()
 				--  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 				--end, opts)
-				vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, vim.tbl_extend("keep", { desc = "Type definition" }, opts))
+				vim.keymap.set(
+					"n",
+					"gt",
+					vim.lsp.buf.type_definition,
+					vim.tbl_extend("keep", { desc = "Type definition" }, opts)
+				)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("keep", { desc = "References" }, opts))
 
 				--vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<CR>", { desc = "Diagnostics in telescope" })
-				vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, vim.tbl_extend("keep", { desc = "Diagnostic" }, opts))
-				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("keep", { desc = "Diagnostic prev" }, opts))
-				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("keep", { desc = "Diagnostic next" }, opts))
-				vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, vim.tbl_extend("keep", { desc = "Diagnostic locations list" }, opts))
+				vim.keymap.set(
+					"n",
+					"<leader>e",
+					vim.diagnostic.open_float,
+					vim.tbl_extend("keep", { desc = "Diagnostic" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"[d",
+					vim.diagnostic.goto_prev,
+					vim.tbl_extend("keep", { desc = "Diagnostic prev" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"]d",
+					vim.diagnostic.goto_next,
+					vim.tbl_extend("keep", { desc = "Diagnostic next" }, opts)
+				)
+				vim.keymap.set(
+					"n",
+					"<leader>q",
+					vim.diagnostic.setloclist,
+					vim.tbl_extend("keep", { desc = "Diagnostic locations list" }, opts)
+				)
 			end
 
 			lspconfig.gopls.setup({
@@ -143,6 +198,13 @@ return {
 						enableEnhancedValidation = true,
 					},
 				},
+			})
+
+			lspconfig.dockerls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				init_options = {},
+				root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
 			})
 		end,
 	},
