@@ -16,10 +16,10 @@ return {
 					"yaml",
 				},
 				auto_install = true,
-				ignore_install = { "dockerfile" },
+				--ignore_install = { "dockerfile" },
 				highlight = {
 					enable = true,
-					disable = { "dockerfile" },
+					--disable = { "dockerfile" },
 				},
 				indent = { enable = true },
 			})
