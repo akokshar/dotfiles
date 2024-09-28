@@ -207,6 +207,13 @@ return {
 				init_options = {},
 				root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
 			})
+
+			lspconfig.yamlls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				init_options = {},
+				root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
+			})
 		end,
 	},
 }

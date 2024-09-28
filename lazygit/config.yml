@@ -6,12 +6,11 @@ gui:
     optionsTextColor:
       - default
     selectedLineBgColor:
-      - '#1763da'
+      - "#1763da"
   authorColors:
-    'lex': cyan
-    '*': red
+    "lex": cyan
+    "*": red
   branchColors:
-    'main': '#11aaff'
-    'master': '#11aaff'
+    "main": "#11aaff"
+    "master": "#11aaff"
   commitAuthorShortLength: 5
-
