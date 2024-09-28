@@ -179,6 +179,7 @@ return {
 				init_options = {
 					usePlaceholders = true,
 				},
+				root_dir = lspconfig.util.root_pattern("go.mod", ".git", vim.fn.getcwd()),
 			})
 
 			lspconfig.lua_ls.setup({
