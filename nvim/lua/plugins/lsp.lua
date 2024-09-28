@@ -179,7 +179,7 @@ return {
 				init_options = {
 					usePlaceholders = true,
 				},
-				root_dir = lspconfig.util.root_pattern("go.mod", ".git", vim.fn.getcwd()),
+				--root_dir = lspconfig.util.root_pattern("go.mod", ".git", vim.fn.getcwd()),
 			})
 
 			lspconfig.lua_ls.setup({
@@ -212,7 +212,23 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				init_options = {},
-				root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
+				settings = {
+					redhat = { telemetry = { enabled = false } },
+					yaml = {
+						format = {
+							enable = true,
+							bracketSpacing = true,
+						},
+						hover = true,
+						editor = { tabSize = 2 },
+						schemas = {
+							["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+							["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = ".gitlab-ci.yml",
+							["kubernetes"] = "*/manifests/**/*.yaml",
+						},
+					},
+				},
+				--root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
 			})
 		end,
 	},
