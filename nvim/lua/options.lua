@@ -6,10 +6,10 @@ vim.cmd("set t_Co=256")
 vim.g.mapleader = "\\"
 
 -- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { silent = true })
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>")
 
@@ -51,10 +51,10 @@ end
 
 vim.diagnostic.config({
   virtual_text = {
-    source = "always",  -- Or "if_many"
+    source = "always", -- Or "if_many"
   },
   float = {
-    source = "always",  -- Or "if_many"
+    source = "always", -- Or "if_many"
   },
   --virtual_text = true,
   signs = true,
@@ -62,5 +62,3 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = false,
 })
-
-
