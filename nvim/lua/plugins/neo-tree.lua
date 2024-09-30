@@ -33,7 +33,6 @@ return {
 
 		require("neo-tree").setup({
       enable_git_status = false,
-
 			close_if_last_window = true,
 			--popup_border_style = "rounded",
 			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
@@ -73,6 +72,7 @@ return {
 			},
 
 			window = {
+        width = "32",
 				mappings = {
 					["E"] = function()
 						vim.api.nvim_exec("Neotree focus filesystem left", true)
