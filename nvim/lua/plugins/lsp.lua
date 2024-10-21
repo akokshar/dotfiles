@@ -56,7 +56,7 @@ return {
           --null_ls.builtins.diagnostics.erb_lint,
         },
       })
-      vim.keymap.set("n", "<leader>cf", vim.lsp.bef.format, { desc = "Format code" })
+      vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
     end,
   },
   {
