@@ -23,24 +23,6 @@ return {
       })
     end,
   },
-  --{
-  --	"ray-x/lsp_signature.nvim",
-  --	event = "VeryLazy",
-  --	config = function()
-  --		require("lsp_signature").setup({
-  --			bind = true, -- This is mandatory, otherwise border config won't get registered.
-  --			handler_opts = {
-  --				border = "rounded",
-  --			},
-  --			close_timeout = 100,
-  --			hint_enable = true,
-  --			floating_window = false,
-  --			hint_inline = function()
-  --				return "right_align"
-  --			end,
-  --		})
-  --	end,
-  --},
   {
     "nvimtools/none-ls.nvim",
     dependencies = {
@@ -51,12 +33,12 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.diagnostics.terraform_validate,
+          --null_ls.builtins.diagnostics.terraform_validate,
           --null_ls.builtins.formatting.prettier,
           --null_ls.builtins.diagnostics.erb_lint,
         },
       })
-      vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
+      vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code (none-ls)" })
     end,
   },
   {
@@ -193,13 +175,14 @@ return {
         on_attach = on_attach,
         init_options = {
           experimentalFeatures = {
-            validateOnSave = false,
+            validateOnSave = true,
             prefillRequiredFields = true,
           },
           validation = {
             enableEnhancedValidation = true,
           },
         },
+        root_dir = lspconfig.util.root_pattern(".terraform", ".git", vim.fn.getcwd()),
       })
 
       lspconfig.dockerls.setup({
