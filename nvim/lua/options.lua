@@ -9,7 +9,7 @@ vim.cmd("set t_Co=256")
 vim.cmd("set lcs+=space:·,tab:\\ —→,trail:×")
 --vim.cmd("set list")
 
-vim.keymap.set({"n", "i"}, "<c-s>", "<cmd>:w<CR>", { silent = true })
+vim.keymap.set({"n", "i"}, "<c-s>", "<cmd>:w<CR><ESC>", { silent = true })
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { silent = true })
