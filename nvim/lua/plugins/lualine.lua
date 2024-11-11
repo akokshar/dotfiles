@@ -19,6 +19,7 @@ return {
 				--globalstatus = true,
 				disabled_filetypes = { -- Filetypes to disable lualine for.
 					statusline = {
+						"NvimTree",
 						"neo-tree",
 						"dap-repl",
 						"dapui_console",
@@ -29,6 +30,7 @@ return {
 						"toggleterm",
 					}, -- only ignores the ft for statusline.
 					winbar = {
+						"NvimTree",
 						"neo-tree",
 						"dap-repl",
 						--"dapui_console",
