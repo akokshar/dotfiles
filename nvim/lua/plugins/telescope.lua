@@ -1,16 +1,22 @@
 return {
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-  },
+  --{
+  --  "nvim-telescope/telescope-ui-select.nvim",
+  --},
   {
     "nvim-telescope/telescope.nvim",
     --tag = "0.1.5",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-lua/plenary.nvim",
+    },
     config = function()
       require("telescope").setup({
         extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+          --["ui-select"] = {
+          --  require("telescope.themes").get_dropdown({}),
+          --},
+          file_browser = {
+            hijack_netrw = true,
           },
         },
       })
@@ -19,7 +25,8 @@ return {
       --vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       --vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, {})
 
-      require("telescope").load_extension("ui-select")
+      --require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("file_browser")
     end,
   },
 }

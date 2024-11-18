@@ -5,6 +5,7 @@ return {
 		"ray-x/lsp_signature.nvim",
 	},
 	config = function()
+    vim.cmd("set noshowmode")
 		--local current_signature = function(width)
 		--	if not pcall(require, "lsp_signature") then
 		--		return
