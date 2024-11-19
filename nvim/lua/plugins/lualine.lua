@@ -5,7 +5,7 @@ return {
 		"ray-x/lsp_signature.nvim",
 	},
 	config = function()
-    vim.cmd("set noshowmode")
+		vim.cmd("set noshowmode")
 		--local current_signature = function(width)
 		--	if not pcall(require, "lsp_signature") then
 		--		return
@@ -65,7 +65,12 @@ return {
 				lualine_z = {},
 			},
 			inactive_winbar = {
-				lualine_c = { "filename" },
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+					},
+				},
 			},
 		})
 	end,
