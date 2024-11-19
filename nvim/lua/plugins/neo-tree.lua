@@ -116,7 +116,7 @@ return {
 				{
 					event = events.NEO_TREE_BUFFER_ENTER,
 					handler = function()
-            vim.cmd("setlocal nonumber")
+						vim.cmd("setlocal nonumber")
 						--vim.o.showmode = false
 						--vim.o.ruler = false
 						--vim.o.laststatus = 0
