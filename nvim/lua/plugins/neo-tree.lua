@@ -86,26 +86,27 @@ return {
 					--end,
 				},
 			},
-			--filesystem = {
-			--	window = {
-			--		mappings = {
-			--			["tf"] = "telescope_find",
-			--			["tg"] = "telescope_grep",
-			--		},
-			--	},
-			--},
-			--commands = {
-			--	telescope_find = function(state)
-			--		local node = state.tree:get_node()
-			--		local path = node:get_id()
-			--		require("telescope.builtin").find_files(getTelescopeOpts(state, path))
-			--	end,
-			--	telescope_grep = function(state)
-			--		local node = state.tree:get_node()
-			--		local path = node:get_id()
-			--		require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
-			--	end,
-			--},
+			filesystem = {
+				hijack_netrw_behavior = "open_current",
+				--	window = {
+				--		mappings = {
+				--			["tf"] = "telescope_find",
+				--			["tg"] = "telescope_grep",
+				--		},
+				--	},
+				--},
+				--commands = {
+				--	telescope_find = function(state)
+				--		local node = state.tree:get_node()
+				--		local path = node:get_id()
+				--		require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+				--	end,
+				--	telescope_grep = function(state)
+				--		local node = state.tree:get_node()
+				--		local path = node:get_id()
+				--		require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
+				--	end,
+			},
 			event_handlers = {
 				{
 					event = "file_open_requested",
