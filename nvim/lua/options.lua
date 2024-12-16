@@ -3,6 +3,7 @@ vim.g.loaded_netrw = 1
 
 vim.g.mapleader = "\\"
 
+vim.cmd("set mouse=nvir")
 vim.cmd("set noshowcmd")
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
