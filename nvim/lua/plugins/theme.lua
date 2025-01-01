@@ -6,7 +6,7 @@ return {
     priority = 1000,
     config = function()
       vim.cmd("colorscheme gruvbox")
-      vim.cmd("highlight MsgArea cterm=bold ctermfg=124")
+      vim.cmd("highlight MsgArea cterm=bold ctermfg=red")
     end,
   },
 }
