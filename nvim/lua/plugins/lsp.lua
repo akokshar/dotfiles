@@ -194,6 +194,7 @@ return {
         root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
       })
 
+      local gitlab_schema_url = "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"
       lspconfig.yamlls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -209,8 +210,8 @@ return {
             editor = { tabSize = 2 },
             schemas = {
               ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-              ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] =
-              ".gitlab-ci.yml",
+              [gitlab_schema_url] = ".gitlab-ci.yml",
+              [gitlab_schema_url] = "/templates/*/template.yml",
               ["kubernetes"] = "*/manifests/**/*.yaml",
             },
           },
