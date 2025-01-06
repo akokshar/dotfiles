@@ -59,14 +59,15 @@ return {
       local treesitter = require("nvim-treesitter.configs")
       treesitter.setup({
         ensure_installed = {
+          "dockerfile",
           "go",
           "hcl",
-          "terraform",
-          "lua",
-          "vim",
-          "javascript",
-          "dockerfile",
           "html",
+          "javascript",
+          "lua",
+          "make",
+          "terraform",
+          "vim",
           "yaml",
         },
         --ignore_install = { "dockerfile" },
