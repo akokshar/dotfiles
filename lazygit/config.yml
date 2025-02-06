@@ -13,4 +13,4 @@ gui:
   branchColors:
     "main": "#11aaff"
     "master": "#11aaff"
-  commitAuthorShortLength: 5
+  commitAuthorShortLength: 7
