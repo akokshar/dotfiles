@@ -146,8 +146,8 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<M-E>", ":Neotree filesystem reveal left<CR>", {})
-    vim.keymap.set("n", "<M-B>", ":Neotree buffers reveal left<CR>", {})
+--    vim.keymap.set("n", "<M-E>", ":Neotree filesystem reveal left<CR>", {})
+--    vim.keymap.set("n", "<M-B>", ":Neotree buffers reveal left<CR>", {})
     --vim.keymap.set("n", "<M-G>", ":Neotree git_status reveal left<CR>", {})
   end,
 }
