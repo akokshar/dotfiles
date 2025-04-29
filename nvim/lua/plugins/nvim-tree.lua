@@ -29,6 +29,15 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<M-E>", ":NvimTreeFocus<CR>", {})
+    vim.keymap.set("n", "<M-E>", ":NvimTreeFocus<CR>", {desc = "Show files browser"})
   end,
+  -- keys = {
+  --   {
+  --     "<M-E>",
+  --     function()
+  --     
+  --     end,
+  --     desc = "Show files browser",
+  --   },
+  -- }
 }
