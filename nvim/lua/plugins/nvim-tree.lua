@@ -22,10 +22,21 @@ return {
         width = 32,
         number = false,
         relativenumber = false,
-        signcolumn = "no",
+        signcolumn = "yes",
       },
       renderer = {
         group_empty = true,
+        icons = {
+          diagnostics_placement = "signcolumn",
+          git_placement = "after",
+          modified_placement = "before",
+        },
+      },
+      diagnostics = {
+        enable = true,
+      },
+      modified = {
+        enable = true,
       },
       filters = {
         dotfiles = false,
@@ -35,7 +46,9 @@ return {
   keys = {
     {
       "<M-E>",
-      function() require("nvim-tree.api").tree.focus() end,
+      function()
+        require("nvim-tree.api").tree.focus()
+      end,
       mode = "n",
       desc = "Focus NvimTree",
     },
