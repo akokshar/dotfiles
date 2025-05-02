@@ -19,7 +19,10 @@ return {
         sorter = "case_sensitive",
       },
       view = {
-        width = 30,
+        width = 32,
+        number = false,
+        relativenumber = false,
+        signcolumn = "no",
       },
       renderer = {
         group_empty = true,
@@ -28,16 +31,13 @@ return {
         dotfiles = false,
       },
     })
-
-    vim.keymap.set("n", "<M-E>", ":NvimTreeFocus<CR>", {desc = "Show files browser"})
   end,
-  -- keys = {
-  --   {
-  --     "<M-E>",
-  --     function()
-  --     
-  --     end,
-  --     desc = "Show files browser",
-  --   },
-  -- }
+  keys = {
+    {
+      "<M-E>",
+      function() require("nvim-tree.api").tree.focus() end,
+      mode = "n",
+      desc = "Focus NvimTree",
+    },
+  },
 }

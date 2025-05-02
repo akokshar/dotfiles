@@ -190,6 +190,15 @@ return {
 				root_dir = lspconfig.util.root_pattern(".terraform", ".git", vim.fn.getcwd()),
 			})
 
+			lspconfig.helm_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					lintOnSave = true,
+					enableDebugLogs = false,
+				},
+			})
+
 			lspconfig.dockerls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
