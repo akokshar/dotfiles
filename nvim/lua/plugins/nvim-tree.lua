@@ -45,9 +45,9 @@ return {
   end,
   keys = {
     {
-      "<M-E>",
+      "<leader>e",
       function()
-        require("nvim-tree.api").tree.focus()
+        require("nvim-tree.api").tree.toggle()
       end,
       mode = "n",
       desc = "Focus NvimTree",

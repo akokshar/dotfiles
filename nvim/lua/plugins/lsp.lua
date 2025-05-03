@@ -43,7 +43,7 @@ return {
 				},
 			})
 			vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code (none-ls)" })
-			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic (none-ls)" })
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic (none-ls)" })
 		end,
 	},
 	{
@@ -137,7 +137,7 @@ return {
 				--vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<CR>", { desc = "Diagnostics in telescope" })
 				vim.keymap.set(
 					"n",
-					"<leader>e",
+					"<leader>d",
 					vim.diagnostic.open_float,
 					vim.tbl_extend("keep", { desc = "Diagnostic" }, opts)
 				)
@@ -155,7 +155,7 @@ return {
 				)
 				vim.keymap.set(
 					"n",
-					"<leader>q",
+					"<leader>dl",
 					vim.diagnostic.setloclist,
 					vim.tbl_extend("keep", { desc = "Diagnostic locations list" }, opts)
 				)
