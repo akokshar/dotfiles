@@ -39,12 +39,22 @@ vim.api.nvim_create_augroup("RelativeNumber", { clear = true })
 vim.api.nvim_create_autocmd("InsertEnter", {
   group = "RelativeNumber",
   pattern = "*",
-  command = "set norelativenumber",
+  callback = function ()
+    -- if vim.bo.filetype == "NvimTree" then
+    --   return
+    -- end
+    vim.wo.relativenumber = false
+  end,
 })
 vim.api.nvim_create_autocmd("InsertLeave", {
   group = "RelativeNumber",
   pattern = "*",
-  command = "set relativenumber",
+  callback = function ()
+    -- if vim.bo.filetype == "NvimTree" then
+    --   return
+    -- end
+    vim.wo.relativenumber = true
+  end,
 })
 
 -- LSP UI
