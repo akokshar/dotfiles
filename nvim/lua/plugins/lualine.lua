@@ -58,6 +58,7 @@ return {
 					{
 						"filename",
 						path = 1,
+						symbols = { modified = "~" },
 					},
 				},
 				lualine_x = {},
@@ -69,6 +70,7 @@ return {
 					{
 						"filename",
 						path = 1,
+            symbols = { modified = "~" },
 					},
 				},
 			},

@@ -31,7 +31,7 @@ return {
 					git_placement = "after",
 					modified_placement = "signcolumn",
 					glyphs = {
-						modified = "+",
+						modified = "~",
 						git = {
 							unstaged = "~",
 						},
