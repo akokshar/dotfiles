@@ -178,6 +178,7 @@ return {
 			lspconfig.terraformls.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
+				filetypes = { "terraform", "tf", "terraform-vars" },
 				init_options = {
 					experimentalFeatures = {
 						validateOnSave = true,
@@ -197,6 +198,7 @@ return {
 					lintOnSave = true,
 					enableDebugLogs = false,
 				},
+				root_dir = lspconfig.util.root_pattern(".git", "Chart.yaml", vim.fn.getcwd()),
 			})
 
 			lspconfig.dockerls.setup({
