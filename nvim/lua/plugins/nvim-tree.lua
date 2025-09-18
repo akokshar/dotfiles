@@ -19,7 +19,7 @@ return {
 				sorter = "case_sensitive",
 			},
 			view = {
-				width = 32,
+				width = 40,
 				number = false,
 				relativenumber = false,
 				signcolumn = "yes",

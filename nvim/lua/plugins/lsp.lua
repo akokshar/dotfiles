@@ -57,8 +57,6 @@ return {
 			)
 			--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-			local lspconfig = require("lspconfig")
-
 			local on_attach = function(_, bufnr)
 				local function buf_set_option(...)
 					vim.api.nvim_buf_set_option(bufnr, ...)
@@ -161,21 +159,23 @@ return {
 				)
 			end
 
-			lspconfig.gopls.setup({
+			vim.lsp.config("gopls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				init_options = {
 					usePlaceholders = true,
 				},
-				--root_dir = lspconfig.util.root_pattern("go.mod", ".git", vim.fn.getcwd()),
+				--root_dir = vim.lsp.util.root_pattern("go.mod", ".git", vim.fn.getcwd()),
 			})
+			vim.lsp.enable("gopls")
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			vim.lsp.enable("lua_ls")
 
-			lspconfig.terraformls.setup({
+			vim.lsp.config("terraformls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				filetypes = { "terraform", "tf", "terraform-vars" },
@@ -188,29 +188,32 @@ return {
 						enableEnhancedValidation = true,
 					},
 				},
-				root_dir = lspconfig.util.root_pattern(".terraform", ".git", vim.fn.getcwd()),
+				root_markers = { ".terraform", ".git" },
 			})
+			vim.lsp.enable("terraformls")
 
-			lspconfig.helm_ls.setup({
+			vim.lsp.config("helm_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				settings = {
 					lintOnSave = true,
 					enableDebugLogs = false,
 				},
-				root_dir = lspconfig.util.root_pattern(".git", "Chart.yaml", vim.fn.getcwd()),
+				root_markers = { "Chart.yaml", ".git" },
 			})
+			vim.lsp.enable("helm_ls")
 
-			lspconfig.dockerls.setup({
+			vim.lsp.config("dockerls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				init_options = {},
-				root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
+				root_markers = { "go.mod", ".git" },
 			})
+			vim.lsp.enable("dockerls")
 
 			local gitlab_schema_url =
 				"https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"
-			lspconfig.yamlls.setup({
+			vim.lsp.config("yamlls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
 				init_options = {},
@@ -231,8 +234,9 @@ return {
 						},
 					},
 				},
-				--root_dir = lspconfig.util.root_pattern(".git", "go.mod", vim.fn.getcwd()),
+				root_markers = { ".git" },
 			})
+			vim.lsp.enable("yamlls")
 		end,
 	},
 }
