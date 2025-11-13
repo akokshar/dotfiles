@@ -58,10 +58,9 @@ return {
 			--capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			local on_attach = function(_, bufnr)
-				local function buf_set_option(...)
-					vim.api.nvim_buf_set_option(bufnr, ...)
-				end
-				buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+				vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", {
+					buf = bufnr,
+				})
 
 				--vim.api.nvim_create_autocmd("CursorHold", {
 				--  buffer = bufnr,
@@ -139,18 +138,15 @@ return {
 					vim.diagnostic.open_float,
 					vim.tbl_extend("keep", { desc = "Diagnostic" }, opts)
 				)
-				vim.keymap.set(
-					"n",
-					"[d",
-					vim.diagnostic.goto_prev,
-					vim.tbl_extend("keep", { desc = "Diagnostic prev" }, opts)
-				)
-				vim.keymap.set(
-					"n",
-					"]d",
-					vim.diagnostic.goto_next,
-					vim.tbl_extend("keep", { desc = "Diagnostic next" }, opts)
-				)
+
+				vim.keymap.set("n", "[d", function()
+					vim.diagnostic.jump({ float = true, count = -1 })
+				end, vim.tbl_extend("keep", { desc = "Diagnostic prev" }, opts))
+
+				vim.keymap.set("n", "]d", function()
+					vim.diagnostic.jump({ count = 1 })
+				end, vim.tbl_extend("keep", { desc = "Diagnostic next" }, opts))
+
 				vim.keymap.set(
 					"n",
 					"<leader>dl",
@@ -172,6 +168,17 @@ return {
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				on_attach = on_attach,
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim" } },
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = { enable = false },
+					},
+				},
 			})
 			vim.lsp.enable("lua_ls")
 
