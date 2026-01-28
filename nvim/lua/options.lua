@@ -10,6 +10,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set t_Co=256")
+vim.cmd("set splitright")
 
 vim.cmd("set lcs+=space:·,tab:\\ —→,trail:×")
 --vim.cmd("set list")

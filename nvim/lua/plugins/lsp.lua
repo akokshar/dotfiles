@@ -23,29 +23,29 @@ return {
 			})
 		end,
 	},
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.stylua,
-					--null_ls.builtins.formatting.hclfmt,
-					null_ls.builtins.formatting.terraform_fmt.with({
-						filetypes = { "hcl" },
-					}),
-					--null_ls.builtins.diagnostics.terragrunt_validate,
-					--null_ls.builtins.formatting.prettier,
-					--null_ls.builtins.diagnostics.erb_lint,
-				},
-			})
-			vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code (none-ls)" })
-			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic (none-ls)" })
-		end,
-	},
+	--	{
+	--		"nvimtools/none-ls.nvim",
+	--		dependencies = {
+	--			"nvim-lua/plenary.nvim",
+	--		},
+	--		config = function()
+	--			local null_ls = require("null-ls")
+	--			null_ls.setup({
+	--				sources = {
+	--					null_ls.builtins.formatting.stylua,
+	--					--null_ls.builtins.formatting.hclfmt,
+	--					null_ls.builtins.formatting.terraform_fmt.with({
+	--						filetypes = { "hcl" },
+	--					}),
+	--					--null_ls.builtins.diagnostics.terragrunt_validate,
+	--					--null_ls.builtins.formatting.prettier,
+	--					--null_ls.builtins.diagnostics.erb_lint,
+	--				},
+	--			})
+	--			vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format code (none-ls)" })
+	--			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic (none-ls)" })
+	--		end,
+	--	},
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
