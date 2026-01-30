@@ -76,10 +76,10 @@ return {
         width = "32",
         mappings = {
           ["E"] = function()
-            vim.api.nvim_exec("Neotree focus filesystem left", true)
+            vim.cmd("Neotree focus filesystem left", true)
           end,
           ["B"] = function()
-            vim.api.nvim_exec("Neotree focus buffers left", true)
+            vim.cmd("Neotree focus buffers left", true)
           end,
           --["G"] = function()
           --	vim.api.nvim_exec("Neotree focus git_status left", true)
