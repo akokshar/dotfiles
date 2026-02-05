@@ -70,35 +70,35 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 -- LSP UI
-
-local border = {
-  { "┌", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "┐", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "┘", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "└", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
-vim.diagnostic.config({
-  virtual_text = {
-    source = "always", -- Or "if_many"
-  },
-  float = {
-    source = "always", -- Or "if_many"
-  },
-  --virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
-})
+--
+--local border = {
+--  { "┌", "FloatBorder" },
+--  { "─", "FloatBorder" },
+--  { "┐", "FloatBorder" },
+--  { "│", "FloatBorder" },
+--  { "┘", "FloatBorder" },
+--  { "─", "FloatBorder" },
+--  { "└", "FloatBorder" },
+--  { "│", "FloatBorder" },
+--}
+--
+--local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+--function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+--  opts = opts or {}
+--  opts.border = opts.border or border
+--  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+--end
+--
+--vim.diagnostic.config({
+--  virtual_text = {
+--    source = "always", -- Or "if_many"
+--  },
+--  float = {
+--    source = "always", -- Or "if_many"
+--  },
+--  --virtual_text = true,
+--  signs = true,
+--  underline = true,
+--  update_in_insert = false,
+--  severity_sort = false,
+--})

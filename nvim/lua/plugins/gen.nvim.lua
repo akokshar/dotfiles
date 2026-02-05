@@ -3,10 +3,10 @@ return {
 	config = function()
 		local gen = require("gen")
 		gen.setup({
-			model = "qwen2.5-coder:14b-instruct-q4_K_M",
+			model = "codellama:13b-instruct",
 			model_options = {
 				max_tokens = 8192,
-				temperature = 0.1,
+				temperature = 0.2,
 				top_p = 0.95, -- 0 = off
 				top_k = 0,
 			},
@@ -22,7 +22,7 @@ return {
 		})
 
 		gen.prompts["Fix_Code"] = {
-			prompt = "Return ONLY a unified diff. Do not include explanations. Fix bugs in $filetype code, improve clarity, and preserve behavior. Code: $text",
+			prompt = "You are a VERY helpful code assistante. Review $filetype code, fix bugs, improve clarity, and preserve behavior. Return and explain ONLY changes you would make. Code: $text",
 			replace = false,
 		}
 
@@ -35,7 +35,7 @@ return {
 		vim.keymap.set(
 			{ "v", "n" },
 			"<leader>gf",
-			":<C-u>Gen Fix_Code<CR>",
+			":Gen Fix_Code<CR>",
 			{ desc = "Gen: Fix code", noremap = true, silent = true }
 		)
 	end,
