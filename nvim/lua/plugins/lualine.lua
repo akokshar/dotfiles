@@ -42,6 +42,9 @@ require("lualine").setup({
 		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {}, --{ "lsp_signature" },
 		lualine_x = {
+      {
+        vim.ui.progress_status(),
+      }
 --      {
 --        require("noice").api.status.message.get_hl,
 --        cond = require("noice").api.status.message.has,
