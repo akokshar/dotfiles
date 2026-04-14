@@ -1,21 +1,21 @@
-return {
-	"ibhagwan/fzf-lua",
-	-- optional for icon support
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function()
-		-- calling `setup` is optional for customization
-		require("fzf-lua").setup({
-			winopts = {
-				fullscreen = true,
-        preview = {
-          title = true
-        }
-			},
-		})
+vim.pack.add({
+	"https://github.com/ibhagwan/fzf-lua",
+}, {
+	load = true,
+})
 
-		vim.keymap.set("n", "<c-P>", require("fzf-lua").files, { desc = "Fzf Files" })
-	end,
-}
+--vim.cmd("packadd fzf-lua")
 
--- utils.warn("POSIX find does not support the '-printf' option." ..
---    " Install 'fd' or set 'files.find_opts' to '-type f'.")
+require("fzf-lua").setup({
+	winopts = {
+		fullscreen = true,
+		preview = {
+			title = true,
+		},
+	},
+})
+
+vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "Files" } )
+vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua grep_project<CR>", { desc = "Grep project files" })
+vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" } )
+vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>")

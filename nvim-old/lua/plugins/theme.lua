@@ -1,4 +1,11 @@
 return {
+--  {
+--    "catppuccin/vim",
+--    lazy = false,
+--    name = "catppuccin",
+--    config = function ()
+--    end
+--  },
 	{
 		"morhetz/gruvbox",
 		lazy = false,
